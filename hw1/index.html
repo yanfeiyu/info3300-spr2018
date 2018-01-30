@@ -1,0 +1,64 @@
+NAME: Yanfei Yu<br>
+NetId: yy777<br>
+<br>
+<p id="p1">Question 1: Valid Javascript types.<br>
+	There are 6 types in Javascript(as shown in the console):<br> number<br> boolean<br> undefined<br> object<br> string<br>function
+
+	<script>
+		console.log(typeof(1));
+		console.log(typeof(true));
+		console.log(typeof(SDSDdfsd));
+		console.log(typeof([1,2,3,4]));
+		console.log(typeof('1'));
+		function identity(x) {return x;};
+		console.log(typeof(identity));
+	</script>
+</p>
+
+<p id="p2">Question 2: Identify improper JSON and fix it.<br>
+	Problem with a: <br>
+	First, missing single quotation marks around the whole expression.<br>
+	Second, Missing quotation marks around "name".<br>
+	Should be '{ "name": "Data-driven web applications" }'.<br>
+	Fixed version is shown in the console.<br>
+	<br>
+
+	<script>
+		console.log(JSON.parse('{ "name": "Data-driven web applications" }'));
+	</script>
+
+	Problem with b: <br>
+	First, missing single quotation marks around the whole expression.<br>
+	Second, JSON does not allow comments.<br>
+	Should be '{ "number": 3300 }'.<br>
+	Fixed version is shown in the console.<br>
+	<br>
+
+	<script>
+		console.log(JSON.parse('{ "number": 3300 }'));
+	</script>
+
+	Problem with c: <br>
+	First, missing single quotation marks around the whole expression.<br>
+	Second, the semi-column after the last "number" should be a colon.<br>
+	Third, there need to be a comma between each obeject in the list.<br>
+	Forth, missing the square brackets at the end of the expression.<br>
+	Should be '[{ "name": "DDWA", "number": 3300 },{ "name": "Java", "number": 2110 },{ "name": "Python", "number": 1110 }]'.<br>
+	Fixed version is shown in the console.<br>
+	<br>
+
+	<script>
+		console.log(JSON.parse('[{ "name": "DDWA", "number": 3300 },{ "name": "Java", "number": 2110 },{ "name": "Python", "number": 1110 }]'));
+	</script>	
+</p>
+
+<p id="p3">Question 3: Write a JSON expression representing a lsit.<br>
+	'[{"number": 1, "boolean": true, "name": "number 1"},{"number":2, "boolean": false, "name": "number 3"},{"number":3, "boolean":true, "name": "number 3"}]'
+	<script>
+		console.log(JSON.parse('[{"number": 1, "boolean": true, "name": "number 1"},{"number":2, "boolean": false, "name": "number 3"},{"number":3, "boolean":true, "name": "number 3"}]'));
+	</script>	
+</p>
+
+<p id="p4">Question 4:course policy<br>
+    The policy for late assignments is not allowed and will result in a zero score. We should also make sure the assignments we turned in are readable. For unreadable work, the teaching stuff will accept it in rare cases where the file is timestamped in a way that is not in our own control, excluding the "last modified" date in our laptop.
+</p>
