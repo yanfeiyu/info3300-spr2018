@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>INFO 3300 - Data-driven Web Pages</title>
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans" rel="stylesheet">        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+<style>
+body { font-family: 'Alegreya Sans', Calibri, sans-serif; }
+svg { border: solid black 1px; }
+</style>
+    
+</head>
+    
+<body>
+<h3>HW2(Yanfei Yu / yy777)</h3>
+    <p id="p1">1. Die Simulator.<br>
+    <script>
+        function roll(x) {return Math.floor(Math.random()*x+1);}
+        function die(x) {
+            var p = [];
+            for (var i = 0; i<x; i++){
+                p.push(roll(6));
+            }
+            return p;}
+        document.write(die(10).join());
+    </script>
+    </p>
+    
+    <p id="p2">2. Weird die simulator.<br>
+    <script>
+        var values = ["pizza","burrito","sushi"];
+        function diceFactory(values) {
+            return values[roll(values.length)-1];
+            }
+        function lunch() {
+            var p = [];
+            for(var i = 0; i<10; i++){
+                p.push(diceFactory(values));
+            }
+            return p;}
+        document.write(lunch().join());
+    </script>
+    </p>
+    
+    <p id="p3">3. Non-transitive dice generator.<br>
+    <script>
+        var green = [1, 1, 1, 5, 5, 5];
+        var blue = [0, 0, 4, 4, 4, 4];
+        var yellow = [3, 3, 3, 3, 3, 3];
+        var orange = [2, 2, 2, 2, 6, 6];
+        var dice = [green, blue, yellow, orange];
+        function nonTransitiveFactory(x) {
+            return function greenDie() {return dice[x][roll(6)-1];}
+        ()}
+        var p = [];
+        for( var i = 0; i < 10; i++){
+            p.push(nonTransitiveFactory(0));
+        }
+        document.write(p.join(","));
+    </script>
+    </p>
+    
+    <p id="p4">4. Non-transitive dice generator.<br>
+    <script>
+        function rollNTimes(x,y,n) {
+            var count = 0;
+            for (var i = 0; i < n; i++){
+                var numX = nonTransitiveFactory(x);
+                var numY = nonTransitiveFactory(y);
+                if(numX>numY) {count++;};
+            }
+            return count;
+        }
+        var p = [];
+        
+        //can not use the same notation i again in this loop, because the two will be confused.
+        for (var i = 0; i < 10; i++){
+            p.push(rollNTimes(0,1,100));
+        }
+        document.write(p.join());
+    </script>
+    </p>
+    
+    <p id="p5">5. All pairs comparison.<br>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }    
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+    </style>
+        
+    <table style = "width:50%">
+        <caption>Results</caption>
+        <script>
+            var diceName = ["green","blue","yellow","orange"];
+            //loop over the rows
+            for( var i = 0; i < 4; i++ ){
+                document.write("<tr " + "style = \"background-color:"+ diceName[i]+ "\">");
+                //loop over the cell in one row
+                for (var j = 0; j < 4; j++){
+                    document.write("<td>"+rollNTimes(i,j,1000)+"</td>");
+                }
+                document.write("</tr>");
+            }
+        </script>    
+    </table>
+    
+    <div>
+    <br>
+    P(Green>Blue) = P(Blue>Yellow) = P(Yellow>Orange) = P(Orange>Green) = 2/3.<br>
+    Each die is beaten by the previous die in the list, with a probability of 2/3, which is larger than 1/2. Therefore Efron's dice is a set of non-transitive dice.
+    </div>
+    </p>   
+</body>
+</html>
