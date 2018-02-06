@@ -32,12 +32,13 @@ svg { border: solid black 1px; }
     <script>
         var values = ["pizza","burrito","sushi"];
         function diceFactory(values) {
-            return values[roll(values.length)-1];
+            return function rollFromValues() { return roll(values.length)-1;}
             }
         function lunch() {
             var p = [];
             for(var i = 0; i<10; i++){
-                p.push(diceFactory(values));
+                s = diceFactory(values);
+                p.push(values[s()]);
             }
             return p;}
         document.write(lunch().join());
