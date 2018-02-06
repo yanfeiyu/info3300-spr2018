@@ -53,10 +53,11 @@ svg { border: solid black 1px; }
         var dice = [green, blue, yellow, orange];
         function nonTransitiveFactory(x) {
             return function greenDie() {return dice[x][roll(6)-1];}
-        ()}
+        }
         var p = [];
+        f = nonTransitiveFactory(0);
         for( var i = 0; i < 10; i++){
-            p.push(nonTransitiveFactory(0));
+            p.push(f());
         }
         document.write(p.join(","));
     </script>
@@ -64,20 +65,22 @@ svg { border: solid black 1px; }
     
     <p id="p4">4. Non-transitive dice generator.<br>
     <script>
+        
         function rollNTimes(x,y,n) {
             var count = 0;
             for (var i = 0; i < n; i++){
-                var numX = nonTransitiveFactory(x);
-                var numY = nonTransitiveFactory(y);
+                var numX = x();
+                var numY = y();
                 if(numX>numY) {count++;};
             }
             return count;
         }
         var p = [];
         
-        //can not use the same notation i again in this loop, because the two will be confused.
+        x = nonTransitiveFactory(0);
+        y = nonTransitiveFactory(1);
         for (var i = 0; i < 10; i++){
-            p.push(rollNTimes(0,1,100));
+            p.push(rollNTimes(x,y,100));
         }
         document.write(p.join());
     </script>
@@ -95,28 +98,46 @@ svg { border: solid black 1px; }
         }
 
     </style>
+    
+    <script>
+        var diceName = ["green","blue","yellow","orange"];
         
-    <table style = "width:50%">
-        <caption>Results</caption>
-        <script>
-            var diceName = ["green","blue","yellow","orange"];
-            //loop over the rows
-            for( var i = 0; i < 4; i++ ){
-                document.write("<tr " + "style = \"background-color:"+ diceName[i]+ "\">");
+        //generate a table of ronNum x colNum
+        function buildTable(rowNum, colNum){
+            html = "<table style = \"width:50%\">"
+            for( var i = 0; i < rowNum; i++ ){
+                html += "<tr id=\"row" + i +"\">";
                 //loop over the cell in one row
-                for (var j = 0; j < 4; j++){
-                    document.write("<td>"+rollNTimes(i,j,1000)+"</td>");
+                for (var j = 0; j < colNum; j++){
+                    html += "<td id=\"" + i + j + "\"></td>";
                 }
-                document.write("</tr>");
+                html += "</tr>";
             }
-        </script>    
-    </table>
+            html += "</table>";
+            return html;
+        }   
+        
+        document.write(buildTable(diceName.length,diceName.length));
+        //loop over the rows
+        for( var i = 0; i < 4; i++ ){
+            var rowColor = document.getElementById("row"+i);
+            rowColor.style.backgroundColor = diceName[i];
+            x = nonTransitiveFactory(i);
+            //loop over the cell in one row
+            for (var j = 0; j < 4; j++){
+                var cell = document.getElementById(i.toString()+j.toString());
+                y = nonTransitiveFactory(j);
+                cell.innerText = rollNTimes(x,y,1000);
+            }
+        }
+    </script>    
     
     <div>
     <br>
     P(Green>Blue) = P(Blue>Yellow) = P(Yellow>Orange) = P(Orange>Green) = 2/3.<br>
     Each die is beaten by the previous die in the list, with a probability of 2/3, which is larger than 1/2. Therefore Efron's dice is a set of non-transitive dice.
     </div>
-    </p>   
+    </p>
+    
 </body>
 </html>
