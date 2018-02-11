@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+    <title>Yanfei Yu(yy777)</title>
+<style>
+body { font-family:'Palatino', Calibri, sans-serif; }
+svg { border: solid black 1px; }
+</style>
+</head>
+    
+<body>
+<p id="p1">Problem 1: Cornell</p>   
+<svg height="200" width="200">
+    <circle cx = "100" cy = "100" r ="10" fill = "orange"></circle>
+    <g style="overflow:hidden; text-anchor: middle; font-size:20; font-weight: bold; font-family:Palatino">
+        <defs>
+            <filter id="dropShadow" x="-10%" y="-10%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="2 2" result="shadow"/>
+                <feOffset dx="4" dy="8"/>
+            </filter>
+        </defs>
+        <text style="filter: url(#dropShadow); fill: grey" x="50%" y="50%">Cornell</text>
+        <text text-anchor="middle" dominant-baseline="middle"  x="50%" y="50%" fill="red">Cornell</text>
+    </g>
+</svg>
+
+<p id="p2">Problem 2: Figure 2</p>       
+<svg height = "200" width = "200" viewBox="-20 -20 240 240">
+    <line id="horizontal" x1="0" y1="200" x2="200" y2="200" stroke-width="1" stroke="black"/>
+    <text x="-5" y="100" transform ="rotate(-90 -5,100)">y-axis</text>
+    <text x="85" y="215" font-size="15">x-axis</text>
+    <line id="vertical" x1="0" y1="0" x2="0" y2="200" stroke-width="1" stroke="black"/>
+    <g transform="translate(0,200) scale(1,-1)" fill="black">
+        <circle cx="25" cy="7" r="5"/>
+        <circle cx="0" cy="0" r="5"/>
+        <rect x="70" y="30" height="10" width ="10"/><!-- the point of x=75 y=25-->
+        <rect x="195" y="195" height="10" width="10"/>
+    </g>
+</svg>
+
+<p id="p3">Problem 3: Course Flag</p>     
+<svg height="400" width="400" viewBox="0 0 310 310">
+<g id="enneagram01">
+    <g style="fill:none; stroke:#B2A27D; stroke-width:2">
+    <path id="01" d="M 183.138438763306,172 17.8615612366939,172 100,28 Z"/>
+    <!-- center point:x=100 y=124-->
+    <path id="02" d="M 183.138438763306,172 17.8615612366939,172 100,28 Z"fill="#FDEBCB" fill-opacity="0.5" transform="rotate(40,100,124)"/>
+    <path id="02" d="M 183.138438763306,172 17.8615612366939,172 100,28 Z" transform="rotate(80,100,124)"/>
+    </g>
+    <text fill="grey" x="70" y="124">ESSE</text>
+</g>
+<g id="enneagram02">
+    <g style="fill:none; stroke:#F3EAD0; stroke-width:2" transform="translate(100)">
+    <path id="01" d="M 183.138438763306,172 17.8615612366939,172 100,28 Z"/>
+    <!-- center point:x=100 y=124-->
+    <path id="02" d="M 183.138438763306,172 17.8615612366939,172 100,28 Z" fill="#F8F5D5" fill-opacity="0.5" transform="rotate(40,100,124)"/>
+    <path id="02" d="M 183.138438763306,172 17.8615612366939,172 100,28 Z" transform="rotate(80,100,124)"/>
+    </g>
+    <text fill="#E2887D" x="70" y="124" transform="translate(135)">ET</text>
+</g>    
+<g id="enneagram03">
+    <g style="fill:none; stroke:#80E6F0; stroke-width:2" transform="translate(50.1,87)">
+    <path id="01" d="M 183.138438763306,172 17.8615612366939,172 100,28 Z" fill="#FECCBB" fill-opacity="0.25"/>
+    <!-- center point:x=100 y=124-->
+    <path id="02" d="M 183.138438763306,172 17.8615612366939,172 100,28 Z" transform="rotate(40,100,124)"/>
+    <path id="02" d="M 183.138438763306,172 17.8615612366939,172 100,28 Z" transform="rotate(80,100,124)"/>
+    </g>
+    <text fill="#46B3A8" x="70" y="124" transform="translate(50.1,110)">VIDERI</text>
+</g>
+</svg>
+
+<p id="p4">Problem 4A: bar plot</p>  
+    <svg height="200" width="840" viewBox="-10 -10 880 240">
+    <line id="horizontal" x1="0" y1="200" x2="800" y2="200" stroke-width="1" stroke="black"/>
+    <text x="-30" y="150" transform ="rotate(-90 -30,150)">Frequency</text>
+    <text x="800" y="215" font-size="15">Numbers</text>
+    <line id="vertical" x1="0" y1="0" x2="0" y2="200" stroke-width="1" stroke="black"/>
+        <g id="horizontal_" stroke-width="1" stroke="black">
+            <line x1="40" x2="40" y1="200" y2="205"/>
+            <line x1="80" x2="80" y1="200" y2="205"/>
+            <line x1="120" x2="120" y1="200" y2="205"/>
+            <line x1="160" x2="160" y1="200" y2="205"/>            
+            <line x1="200" x2="200" y1="200" y2="205"/>   
+            <line x1="240" x2="240" y1="200" y2="205"/>
+            <line x1="280" x2="280" y1="200" y2="205"/>            
+            <line x1="320" x2="320" y1="200" y2="205"/>
+            <line x1="360" x2="360" y1="200" y2="205"/>
+            <line x1="400" x2="400" y1="200" y2="205"/>
+            <line x1="440" x2="440" y1="200" y2="205"/>          
+            <line x1="480" x2="480" y1="200" y2="205"/>            
+            <line x1="520" x2="520" y1="200" y2="205"/>
+            <line x1="560" x2="560" y1="200" y2="205"/>        
+            <line x1="600" x2="600" y1="200" y2="205"/>           
+            <line x1="640" x2="640" y1="200" y2="205"/>
+            <line x1="680" x2="680" y1="200" y2="205"/>
+        </g>
+        <g id="vertical_" stroke-width="1" stroke="black">
+            <line x1="0" x2="-5" y1="160" y2="160"/>
+            <line x1="0" x2="-5" y1="120" y2="120"/>
+            <line x1="0" x2="-5" y1="80" y2="80"/>
+            <line x1="0" x2="-5" y1="40" y2="40"/>
+        </g>
+        <g>
+            <text x="-20" y="165">1</text>
+            <text x="-20" y="125">2</text>
+            <text x="-20" y="85">3</text>
+            <text x="-20" y="45">4</text>   
+        </g>
+        <g>
+            <text x="36" y="220">0</text>
+            <text x="76" y="220">1</text>
+            <text x="116" y="220">2</text>
+            <text x="156" y="220">3</text>
+            <text x="196" y="220">4</text>
+            <text x="236" y="220">5</text>
+            <text x="276" y="220">6</text>
+            <text x="316" y="220">7</text>
+            <text x="356" y="220">8</text>
+            <text x="396" y="220">9</text>
+            <text x="436" y="220">10</text>
+            <text x="476" y="220">11</text>
+            <text x="516" y="220">12</text>
+            <text x="556" y="220">13</text>
+            <text x="596" y="220">14</text>
+            <text x="636" y="220">15</text>
+            <text x="676" y="220">16</text>  
+        </g>
+        
+        <g fill="#FF464F">
+            <path d="M 35,200 35,160 45,160 45,200 Z"/>
+            <path d="M 75,200 75,160 85,160 85,200 Z" />
+            <path d="M 115,200 115,160 125,160 125,200 Z"/>
+            <path d="M 155,200 155,160 165,160 165,200 Z"/>
+            <path d="M 195,200 195,80 205,80 205,200 Z"/>
+            <path d="M 275,200 275,120 285,120 285,200 Z"/>
+            <path d="M 315,200 315,120 325,120 325,200 Z"/>
+            <path d="M 355,200 355,160 365,160 365,200 Z"/>   
+            <path d="M 435,200 435,120 445,120 445,200 Z"/>
+            <path d="M 635,200 635,120 645,120 645,200 Z"/>
+        </g>
+        <line id="mean" x1="295" y1="200" x2="295" y2="0" stroke="red"></line>
+        <line id="median" x1="280" y1="200" x2="280" y2="0" stroke="blue"></line>
+        <line id="mode" x1="200" y1="200" x2="200" y2="0" stroke="purple"></line>
+        
+        <rect x="117.3861867" y="0" height="200" width="355.2276266" fill-opacity="0.5"/>
+    </svg> 
+    
+<p id="p4">Problem 4B: Stats</p>
+        <ul>
+            <li>mean: 6.375</li>	
+            <li>median: 6</li>
+            <li>mode: 4</li>
+            <li>standard deviation: 4.440345332</li>
+        </ul>  
+<p id="p4">Problem 4E: Probability</p>
+    <text>P(n>=4) = 12/16 = 0.75</text>
+</body>
+        
